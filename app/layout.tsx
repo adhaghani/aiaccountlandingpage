@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "300", "200", "800"],
@@ -21,13 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} antialiased`}>
-        <Header />
-        <main className="py-4">
-          <div className="max-w-5xl mx-auto px-4 border">{children}</div>
-        </main>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className="py-4 pt-22">
+            <div className="max-w-5xl mx-auto px-4 border">{children}</div>
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

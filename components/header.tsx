@@ -7,7 +7,7 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 const Header = () => {
   const isMobile = useIsMobile();
   return (
-    <header className="bg-secondary px-4 py-4">
+    <header className=" p-4 fixed top-0 w-full  border-b ">
       {isMobile ? <NavMobile /> : <Nav />}
     </header>
   );
