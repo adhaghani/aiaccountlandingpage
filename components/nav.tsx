@@ -6,11 +6,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
-import { Button } from "./ui/button";
+import { Text } from "./ui/text";
 
 const Nav = () => {
   return (
     <nav className="max-w-5xl border mx-auto px-4 flex justify-between items-center">
+      <div className="flex gap-2 items-center">
+        <div className="grid place-items-center">{/* Logo Goes Here */}</div>
+        <Text as="h4">Numeric Solution</Text>
+      </div>
       <ul className="flex gap-2 items-center">
         <li>
           <NavigationMenu>
@@ -49,9 +53,6 @@ const Nav = () => {
           </NavigationMenu>
         </li>
       </ul>
-      <div>
-        <Button size={"lg"}>Test</Button>
-      </div>
     </nav>
   );
 };
